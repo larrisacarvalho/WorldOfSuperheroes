@@ -6,6 +6,11 @@ const quizData = require("./quizQuestions");
 const { applyEach } = require("async");
 const app = express();
 
+const port = process.env.PORT || 5000;
+const path = require("path")
+
+app.use(express.static(path.join(__dirname, "frontEnd/worldodsuperheroes", "build")))
+
 app.use(cors());
 app.use(express.static('public'));
 
@@ -18,6 +23,10 @@ app.get("/quizData",(req,res) => {
     res.json(quizData);
 });
 
-app.listen(5000, () => {
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "frontEnd/worldodsuperheroes", "index.html"));
+});
+
+app.listen(port, () => {
     console.log("server is running on port 5000.");
 })
