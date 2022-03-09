@@ -9,7 +9,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const path = require("path")
 
-app.use(express.static(path.join(__dirname, "frontEnd/worldodsuperheroes", "build")))
+app.use(express.static(path.join(__dirname, "frontEnd/worldofsuperheroes", "build")))
 
 app.use(cors());
 app.use(express.static('public'));
@@ -24,7 +24,7 @@ app.get("/quizData",(req,res) => {
 });
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontEnd/worldodsuperheroes", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "frontEnd/worldofsuperheroes", "build", "index.html"));
 });
 
 app.listen(port, () => {
