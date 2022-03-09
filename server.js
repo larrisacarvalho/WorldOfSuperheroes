@@ -24,7 +24,7 @@ app.get("/quizData",(req,res) => {
 });
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "frontEnd/worldodsuperheroes", "index.html"));
+    res.sendFile(path.join(__dirname, "frontEnd/worldodsuperheroes", "build", "index.html"));
 });
 
 app.listen(port, () => {
